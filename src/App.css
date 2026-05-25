@@ -34,10 +34,21 @@ body {
   align-items: center;
 }
 
-.nav-links a {
+.nav-links a,
+.nav-link-button {
   color: white;
   font-weight: bold;
   text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+}
+
+.nav-links a:hover,
+.nav-link-button:hover {
+  text-decoration: underline;
 }
 
 .cart-link span {
@@ -51,23 +62,32 @@ body {
   text-align: center;
 }
 
+/* Required class for background image */
+.background-image {
+  min-height: 88vh;
+  background-image: linear-gradient(
+      rgba(20, 60, 30, 0.55),
+      rgba(20, 60, 30, 0.55)
+    ),
+    url("https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .landing-page {
-  min-height: 80vh;
+  min-height: 88vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 60px 20px;
-  background-image: linear-gradient(rgba(20, 60, 30, 0.55), rgba(20, 60, 30, 0.55)),
-    url("https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1600&q=80");
-  background-size: cover;
-  background-position: center;
 }
 
 .landing-card {
   max-width: 720px;
   padding: 48px;
   border-radius: 22px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.92);
   text-align: center;
 }
 
@@ -101,7 +121,8 @@ button:disabled {
   cursor: not-allowed;
 }
 
-.about-us,
+/* Required About Us container */
+.about-us-container,
 .product-page,
 .cart-page {
   max-width: 1200px;
@@ -109,12 +130,19 @@ button:disabled {
   padding: 36px 7%;
 }
 
-.about-us {
+.about-us-container {
   background: white;
   margin-top: 28px;
   margin-bottom: 28px;
   border-radius: 18px;
-  line-height: 1.6;
+  line-height: 1.7;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.about-us-container h1,
+.product-page h1,
+.cart-page h1 {
+  color: #225c36;
 }
 
 .category-title {
@@ -215,4 +243,19 @@ button:disabled {
   background: white;
   padding: 40px;
   border-radius: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .landing-card h1 {
+    font-size: 38px;
+  }
+
+  .cart-row {
+    grid-template-columns: 1fr;
+  }
 }
